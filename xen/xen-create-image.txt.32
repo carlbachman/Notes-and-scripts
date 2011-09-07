@@ -1,0 +1,3 @@
+export http_proxy="http://hej.com:3128"
+
+xen-create-image --hostname=debian1 --size=2Gb --swap=256Mb --dhcp --role udev --arch=i386 --dist=lenny --lvm=myvol --memory=256Mb --kernel /etc/xen/kernels/vmlinuz-2.6.26-2-xen-686 --initrd /etc/xen/kernels/initrd.img-2.6.26-2-xen-686 --modules /etc/xen/kernels/2.6.26-2-xen-686

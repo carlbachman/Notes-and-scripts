@@ -1,0 +1,1 @@
+xen-create-image --hostname=debian1 --size=10Gb --swap=256Mb --ip=84.243.3.44 --netmask=255.255.255.248 --gateway=84.243.3.41 --role=udev --arch=amd64 --dist=lenny --lvm=storage-1 --memory=256Mb --bridge=br0 --vcpus=1 --password=p

@@ -1,0 +1,1 @@
+http_proxy="http://hej.com:3128" xen-create-image --hostname=debian1 --size=2Gb --swap=256Mb --dhcp --role udev --arch=amd64 --dist=lenny --lvm=myvol --memory=256Mb --dhcp --bridge=br0 --vcpus=2 --password=p
