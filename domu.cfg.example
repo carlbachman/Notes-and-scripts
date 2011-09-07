@@ -1,0 +1,49 @@
+#
+# Configuration file for the Xen instance lists, created
+# by xen-tools 4.2 on Mon Apr  4 17:07:34 2011.
+#
+
+#
+#  Kernel + memory size
+#
+kernel      = '/boot/vmlinuz-2.6.26-2-xen-amd64'
+ramdisk     = '/boot/initrd.img-2.6.26-2-xen-amd64'
+
+vcpus       = '1'
+memory      = '256'
+
+#
+#  Disk device(s).
+#
+root        = '/dev/xvda2 ro'
+disk        = [
+                  'phy:/dev/storage-1/lists-disk,xvda2,w',
+                  'phy:/dev/storage-1/lists-swap,xvda1,w',
+              ]
+
+
+#
+#  Physical volumes
+#
+
+
+#
+#  Hostname
+#
+name        = 'lists'
+
+#
+#  Networking
+#
+vif         = [ 'ip=84.243.3.44,mac=00:16:3E:77:D4:B1,bridge=br0' ]
+
+#
+#  Behaviour
+#
+on_poweroff = 'destroy'
+on_reboot   = 'restart'
+on_crash    = 'restart'
+
+extra       = 'clocksource=jiffies'
+
+

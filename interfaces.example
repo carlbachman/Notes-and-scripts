@@ -1,0 +1,50 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo br0 br1 br2
+iface lo inet loopback
+
+# The primary network interface
+#allow-hotplug eth0
+
+#iface eth0 inet static
+#	address 84.243.3.42
+#	netmask 255.255.255.248
+#	network 84.243.3.40
+#	broadcast 84.243.3.47
+#	gateway 84.243.3.41
+	# dns-* options are implemented by the resolvconf package, if installed
+#	dns-nameservers 84.243.2.40 84.243.0.210
+#	dns-search rxtx.se 
+#post-up /usr/sbin/ethtool -s eth0 speed 10 duplex full port tp autoneg off
+#up      ip addr add 84.243.3.43/29 dev eth0
+#down    ip addr del 84.243.3.43/29 dev eth0
+
+iface eth0 inet manual
+
+iface br0 inet static
+bridge_stp off
+bridge_fd 0
+bridge_ports eth0
+	address 84.243.3.42
+	netmask 255.255.255.248
+	network 84.243.3.40
+	broadcast 84.243.3.47
+	gateway 84.243.3.41
+	# dns-* options are implemented by the resolvconf package, if installed
+	dns-nameservers 84.243.2.40 84.243.0.210
+	dns-search rxtx.se 
+post-up /usr/sbin/ethtool -s eth0 speed 10 duplex full port tp autoneg off
+up      ip addr add 84.243.3.43/29 dev br0
+down    ip addr del 84.243.3.43/29 dev br0
+
+iface br1 inet manual
+bridge_stp off
+bridge_fd 0
+bridge_ports none
+
+iface br2 inet manual
+bridge_stp off
+bridge_fd 0
+bridge_ports none
